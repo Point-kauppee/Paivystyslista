@@ -1,0 +1,90 @@
+﻿@model Paivystyslista.Models.Paivystys
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Paivystys</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Pvm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pvm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paiva)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paiva)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alku)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alku)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Loppu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Loppu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kesto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kesto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EiKva)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EiKva)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Huom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Huom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paivystaja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paivystaja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lomat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lomat)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Paivystys_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

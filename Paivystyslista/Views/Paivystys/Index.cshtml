@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Paivystyslista.Models.Paivystys>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Päivystyslista</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Pvm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paiva)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alku)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Loppu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kesto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EiKva)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Huom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paivystaja)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lomat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pvm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paiva)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alku)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Loppu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kesto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EiKva)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Huom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paivystaja)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lomat)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Paivystys_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Paivystys_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Paivystys_id })
+        </td>
+    </tr>
+}
+
+</table>
