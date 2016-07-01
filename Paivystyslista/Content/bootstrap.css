@@ -222,6 +222,8 @@ textarea {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  border: double red;
+
 }
 
 @media print {
@@ -1428,6 +1430,7 @@ th {
   line-height: 1.428571429;
   vertical-align: top;
   border-top: 1px solid #dddddd;
+  
 }
 
 .table thead > tr > th {
@@ -6812,5 +6815,9 @@ td.visible-print {
   th.hidden-print,
   td.hidden-print {
     display: none !important;
+  }
+  Eero
+  {
+      color : blue;
   }
 }

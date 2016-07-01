@@ -3,11 +3,19 @@
 @{
     ViewBag.Title = "Index";
 }
-
+@*<body onload="tarkistus2()">
+</body>*@
 <h2>Päivystyslista</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
+    <br />
+    <button type="button" onclick="muunto()">muunto</button>
+    <br />
+    <button type="button" OnClick="tarkastus()">Tarkastus</button>
+    <br />
+    <button type="button" onclick="tarkistus2()">Tarkistus2</button>
+
 </p>
 <table class="table">
     <tr>
@@ -41,13 +49,19 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Pvm)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Paiva)
+            @{
+                string dtim = String.Format("{0:ddd}", item.Pvm);
+            }
+            @Html.DisplayFor(modelItem => dtim)
+           @* @Html.DisplayFor(modelItem => item.Paiva)*@
+           @* @Html.DisplayFor(modelItem => String.Format("{ddd}",item.Pvm ))*@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Alku)
@@ -64,18 +78,86 @@
         <td>
             @Html.DisplayFor(modelItem => item.Huom)
         </td>
-        <td>
+        @*<td id="Kuka" onload="tarkistus()">*@
+        <td id="Kuka">
             @Html.DisplayFor(modelItem => item.Paivystaja)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Lomat)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Paivystys_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Paivystys_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Paivystys_id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Paivystys_id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Paivystys_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Paivystys_id })|
+         
+            @*<b>Day Is @item.Pvm.ToString();|||</b>
+            @{
+            string dt = @item.Pvm.ToString();
+            }
+           @* Dt is @String.Format("{0:dd-MM}, {1:dddd}", dt, dt)*@
+            @{ 
+                string dti = String.Format("Dt is {0:ddd}", item.Pvm);
+            }
+            @*Dt is @String.Format(dt)*@
+            @*@dti *@
         </td>
     </tr>
-}
+                }
 
 </table>
+
+@for (int i=1; i<=10; i++)
+{
+    <b>@i</b>
+    if(i%2 == 0)
+    {
+        @: - Parillinen
+    }
+    else
+    {
+        @: - Pariton
+    }
+    <br />
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+    function tarkastus() {
+        alert('Moi ');
+    }
+        //document.getElementById("Kuka").style.color = "blue";
+        //document.getElementById("Kuka").style.color = 'red';
+    
+        @*if (@ViewData["Paivystaja"] = "Eero"){
+        document.getElementById("Kuka").style.color = "blue";
+        document.getElementById("Kuka").style.backgroundColor = "yellow";
+        }*@
+        //else {
+        //    document.getElementById("Kuka").style.color = "red";
+        //}
+    //}
+    function muunto() {
+         if (item.Paivystaja == 'Eero') {
+            document.getElementById("Kuka").style.color = "blue";
+            document.getElementById("Kuka").style.backgroundColor = "yellow";
+        }
+        else {
+            document.getElementById("Kuka").style.color = "red";
+            document.getElementById("Kuka").style.backgroundColor = "green";
+        }
+        
+    }
+
+    @*function tarkistus2() {
+        if (@ViewData["Paivystaja"] == 'Eero') {
+            document.getElementById("Kuka").style.color = "blue";
+            document.getElementById("Kuka").style.backgroundColor = "green";
+        }
+        else {
+            document.getElementById("Kuka").style.color = "red";
+        }
+    }*@
+
+</script>
+}
